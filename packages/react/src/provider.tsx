@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { WalletErrorCode, WalletManager, isWalletError } from '@xrpl-connect/core';
 import type { AccountInfo, NetworkInfo, WalletError } from '@xrpl-connect/core';
-import type { ConnectOptionsFor, WalletIdentifier } from '@xrpl-lending/network-wallet-core';
+import type { ConnectOptionsFor, WalletIdentifier } from '@xrpl-lending-network/network-wallet-core';
 import type {
   XrplConnectContextValue,
   XrplConnectProviderProps,

@@ -1,4 +1,4 @@
-import { Address, Accounts, Payments, TrustLines } from '@xrpl-lending/network-wallet-core';
+import { Address, Accounts, Payments, TrustLines } from '@xrpl-lending-network/network-wallet-core';
 
 // --- Generate ---
 
