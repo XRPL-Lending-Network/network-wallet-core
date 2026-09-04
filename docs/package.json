@@ -11,7 +11,7 @@
   "dependencies": {
     "@xrpl-connect/ui": "workspace:*",
     "xrpl": "^4.4.2",
-    "xrpl-connect": "workspace:*"
+    "network-wallet-core": "workspace:*"
   },
   "devDependencies": {
     "vitepress": "^2.0.0-alpha.18",

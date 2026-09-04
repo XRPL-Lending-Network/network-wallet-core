@@ -22,7 +22,7 @@ import type {
   ManagedSignedTransaction,
   Transaction,
   WalletError,
-} from 'xrpl-connect';
+} from 'network-wallet-core';
 
 interface TypedCustomWalletOptions {
   credential: string;
