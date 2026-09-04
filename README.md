@@ -13,7 +13,7 @@ extension or mobile wallet (Xaman, Crossmark, GemWallet, ...) and ask it to sign
 fork keeps that machinery in the tree as internal implementation detail, but the
 package that's actually meant to be imported from outside this workspace —
 **[`packages/xrpl-connect`](packages/xrpl-connect)**, published under the name
-`network-wallet-core` — is a different thing: a facade
+`@xrpl-lending/network-wallet-core` — is a different thing: a facade
 for code that already holds a seed/private key (generated or imported) and wants to
 derive addresses, read balances, and sign+submit transactions directly, with no browser
 wallet in the loop.
@@ -24,11 +24,11 @@ Within this workspace, add it as a `workspace:*` dependency and import from the 
 name — there's no client to construct, no connection to open yourself:
 
 ```json
-{ "dependencies": { "network-wallet-core": "workspace:*" } }
+{ "dependencies": { "@xrpl-lending/network-wallet-core": "workspace:*" } }
 ```
 
 ```typescript
-import { Address, Accounts, Payments, TrustLines } from 'network-wallet-core';
+import { Address, Accounts, Payments, TrustLines } from '@xrpl-lending/network-wallet-core';
 ```
 
 Every method that talks to the network (`Accounts.*`, `Payments.*`, `TrustLines.*`)
@@ -144,14 +144,14 @@ signature, the `SigningCredential`/network types, and the error-handling model.
 
 ```
 packages/
-  xrpl-connect/         ← the facade — published as `network-wallet-core`, the only
-                           package meant to be imported externally
+  xrpl-connect/         ← the facade — published as `@xrpl-lending/network-wallet-core`,
+                           the only package meant to be imported externally
   core/                 ← internal: WalletManager, wallet-connection types (only
                            STANDARD_NETWORKS/resolveNetwork are reused by the facade)
   ui/                   ← internal: <xrpl-wallet-connector> web component
   react/, vue/           internal: framework bindings for the web component — these
-                          still import the pre-facade API from 'network-wallet-core' and
-                          currently fail to build; nothing in this repo depends on them
+                          still import the pre-facade API from '@xrpl-lending/network-wallet-core'
+                          and currently fail to build; nothing in this repo depends on them
   adapters/*/            internal: Xaman/Crossmark/GemWallet/WalletConnect/Ledger/
                           Xyra/Otsu/MetaMask Snap wallet-connection adapters
 examples/
