@@ -16,7 +16,7 @@ import {
   type WalletError,
   type WalletIdentifier,
 } from '@xrpl-connect/core';
-import type { WalletConnectorCssVars } from '@xrpl-lending/network-wallet-core';
+import type { WalletConnectorCssVars } from '@xrpl-lending-network/network-wallet-core';
 import { useXrplConnectContext, type WalletConnectorElement } from './context';
 
 const THEMES: Record<WalletConnectorTheme, Record<string, string>> = {

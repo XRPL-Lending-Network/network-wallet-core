@@ -60,7 +60,7 @@ importers:
       '@xrpl-connect/ui':
         specifier: workspace:*
         version: link:../packages/ui
-      network-wallet-core:
+      '@xrpl-lending-network/network-wallet-core':
         specifier: workspace:*
         version: link:../packages/xrpl-connect
       xrpl:
@@ -79,7 +79,7 @@ importers:
 
   examples/facade:
     dependencies:
-      network-wallet-core:
+      '@xrpl-lending-network/network-wallet-core':
         specifier: workspace:*
         version: link:../../packages/xrpl-connect
     devDependencies:
@@ -315,12 +315,12 @@ importers:
       '@xrpl-connect/core':
         specifier: workspace:*
         version: link:../core
+      '@xrpl-lending-network/network-wallet-core':
+        specifier: workspace:*
+        version: link:../xrpl-connect
       jsdom:
         specifier: ^22.1.0
         version: 22.1.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-      network-wallet-core:
-        specifier: workspace:*
-        version: link:../xrpl-connect
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -359,12 +359,12 @@ importers:
       '@xrpl-connect/core':
         specifier: workspace:*
         version: link:../core
+      '@xrpl-lending-network/network-wallet-core':
+        specifier: workspace:*
+        version: link:../xrpl-connect
       jsdom:
         specifier: ^22.1.0
         version: 22.1.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-      network-wallet-core:
-        specifier: workspace:*
-        version: link:../xrpl-connect
       typescript:
         specifier: ^5.5.0
         version: 5.9.3
