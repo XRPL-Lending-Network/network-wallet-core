@@ -15,7 +15,7 @@ import type {
   WalletError,
   WalletManagerOptions,
 } from '@xrpl-connect/core';
-import type { ConnectOptionsFor, WalletIdentifier } from '@xrpl-lending/network-wallet-core';
+import type { ConnectOptionsFor, WalletIdentifier } from '@xrpl-lending-network/network-wallet-core';
 
 export interface WalletConnectorElement extends HTMLElement {
   setWalletManager(manager: WalletManager): void;

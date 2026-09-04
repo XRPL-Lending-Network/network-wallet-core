@@ -6,7 +6,7 @@
  *
  * @example
  * ```typescript
- * import { WalletManager, Adapters } from '@xrpl-lending/network-wallet-core';
+ * import { WalletManager, Adapters } from '@xrpl-lending-network/network-wallet-core';
  *
  * const walletManager = new WalletManager({
  *   adapters: [new Adapters.Xaman()],

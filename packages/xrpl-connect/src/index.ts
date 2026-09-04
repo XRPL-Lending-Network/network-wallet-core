@@ -1,5 +1,5 @@
 /**
- * @xrpl-lending/network-wallet-core - internal facade
+ * @xrpl-lending-network/network-wallet-core - internal facade
  *
  * This is the only entry point meant to be imported from outside this
  * workspace. @xrpl-connect/core, @xrpl-connect/ui and the adapter packages
@@ -7,7 +7,7 @@
  *
  * @example
  * ```typescript
- * import { Address } from '@xrpl-lending/network-wallet-core';
+ * import { Address } from '@xrpl-lending-network/network-wallet-core';
  * const { address, seed, publicKey, privateKey } = Address.generate();
  * ```
  *
