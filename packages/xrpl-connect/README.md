@@ -1,4 +1,4 @@
-# xrpl-connect
+# network-wallet-core
 
 Internal facade over XRPL address/key management, balances, payments, and trust lines.
 This is the **only** entry point meant to be imported from outside this workspace —
@@ -7,7 +7,7 @@ implementation details of the wider monorepo and are not part of this package's 
 
 > If you're looking for the wallet-*connection* toolkit (`WalletManager`, browser wallet
 > adapters like Xaman/Crossmark/GemWallet, the `<xrpl-wallet-connector>` UI component),
-> that's a different concern — this package doesn't touch it. `xrpl-connect` here is for
+> that's a different concern — this package doesn't touch it. `network-wallet-core` here is for
 > code that already holds a seed/private key (generated or imported) and wants to derive
 > addresses, read balances, and sign+submit transactions directly, without a browser
 > extension or mobile wallet in the loop.
@@ -19,7 +19,7 @@ Within this workspace, add it as a dependency via the `workspace:*` protocol:
 ```json
 {
   "dependencies": {
-    "xrpl-connect": "workspace:*"
+    "network-wallet-core": "workspace:*"
   }
 }
 ```
@@ -27,7 +27,7 @@ Within this workspace, add it as a dependency via the `workspace:*` protocol:
 ## Quick start
 
 ```typescript
-import { Address, Accounts, Payments } from 'xrpl-connect';
+import { Address, Accounts, Payments } from 'network-wallet-core';
 
 // 1. Generate a wallet
 const { address, seed } = Address.generate();

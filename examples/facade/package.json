@@ -9,7 +9,7 @@
     "preview": "vp preview"
   },
   "dependencies": {
-    "xrpl-connect": "workspace:*"
+    "network-wallet-core": "workspace:*"
   },
   "devDependencies": {
     "buffer": "^6.0.3",

@@ -1,5 +1,5 @@
 {
-  "name": "xrpl-connect",
+  "name": "network-wallet-core",
   "version": "1.0.0-rc.1",
   "description": "The easiest way to connect XRPL wallets to your app - Framework-agnostic toolkit with plug-and-play UI",
   "author": "XRPL Connect Contributors",
