@@ -21,7 +21,7 @@ import type {
   ManagedSignedTransaction,
   Transaction,
   WalletError,
-} from 'network-wallet-core';
+} from '@xrpl-lending/network-wallet-core';
 
 interface TypedCustomWalletOptions {
   credential: string;

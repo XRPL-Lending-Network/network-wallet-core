@@ -4,7 +4,7 @@ import {
   XrplConnectProvider,
   type WalletConnectorElement,
 } from '@xrpl-commons/xrpl-connect-react';
-import type { AccountInfo, WalletError, WalletIdentifier } from 'network-wallet-core';
+import type { AccountInfo, WalletError, WalletIdentifier } from '@xrpl-lending/network-wallet-core';
 
 const connectorRef = createRef<WalletConnectorElement>();
 const connectorProps: ComponentProps<'xrpl-wallet-connector'> = {
