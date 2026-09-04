@@ -5,7 +5,7 @@ import type {
   NetworkInfo,
   WalletError,
 } from '@xrpl-connect/core';
-import type { ConnectOptionsFor, WalletConnectorCssVars, WalletIdentifier } from 'xrpl-connect';
+import type { ConnectOptionsFor, WalletConnectorCssVars, WalletIdentifier } from 'network-wallet-core';
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 
 /**
