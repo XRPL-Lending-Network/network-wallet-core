@@ -16,6 +16,10 @@
     "url": "https://github.com/XRPL-Commons/xrpl-connect"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "vp run -r build",
     "dev": "vp run -r --parallel dev",
