@@ -1,8 +1,8 @@
-# network-wallet-core (internal fork)
+# network-wallet-core
 
-> Private fork of [XRPL-Commons/xrpl-connect](https://github.com/XRPL-Commons/xrpl-connect),
-> repurposed as an internal facade for direct XRPL address/key management, balances,
-> payments, and trust lines — not the original wallet-connection toolkit.
+> A fork of [XRPL-Commons/xrpl-connect](https://github.com/XRPL-Commons/xrpl-connect)
+> that publishes something else: a facade for direct XRPL address and key management,
+> balances, payments and trust lines, rather than the original wallet-connection toolkit.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)](https://www.typescriptlang.org/)
 
@@ -11,7 +11,7 @@
 Upstream `xrpl-connect` is a wallet-*connection* toolkit: connect to a user's browser
 extension or mobile wallet (Xaman, Crossmark, GemWallet, ...) and ask it to sign. This
 fork keeps that machinery in the tree as internal implementation detail, but the
-package that's actually meant to be imported from outside this workspace —
+package this repository actually publishes,
 **[`packages/xrpl-connect`](packages/xrpl-connect)**, published under the name
 `@xrpl-lending-network/network-wallet-core` — is a different thing: a facade
 for code that already holds a seed/private key (generated or imported) and wants to
@@ -20,12 +20,15 @@ wallet in the loop.
 
 ## Install / connect
 
-Within this workspace, add it as a `workspace:*` dependency and import from the package
-name — there's no client to construct, no connection to open yourself:
+Install it and import from the package name. There is no client to construct and no
+connection to open yourself:
 
-```json
-{ "dependencies": { "@xrpl-lending-network/network-wallet-core": "workspace:*" } }
+```bash
+npm install @xrpl-lending-network/network-wallet-core xrpl
 ```
+
+`xrpl` is a peer dependency, so install it alongside. Inside this repository the same
+package is available as a `workspace:*` dependency.
 
 ```typescript
 import { Address, Accounts, Payments, TrustLines } from '@xrpl-lending-network/network-wallet-core';
@@ -192,8 +195,29 @@ patch versions with an `ERR_UNKNOWN_FILE_EXTENSION` error. Check `node -v`; if y
 
 MIT License — see the [LICENSE](./LICENSE) file for details.
 
-## Acknowledgments
+## Upstream and attribution
 
-Fork of [XRPL-Commons/xrpl-connect](https://github.com/XRPL-Commons/xrpl-connect), itself
-inspired by [RainbowKit](https://www.rainbowkit.com/), [ConnectKit](https://github.com/family/connectkit),
-and [Solana Wallet Adapter](https://github.com/solana-labs/wallet-adapter).
+This repository is a fork of
+[XRPL-Commons/xrpl-connect](https://github.com/XRPL-Commons/xrpl-connect). The
+wallet-connection code was written by XRPL Commons and its contributors and is used
+here under the MIT licence; the copyright notice in [LICENSE](./LICENSE) is theirs.
+`core/`, `ui/`, the framework bindings and all eight adapters are their work, unchanged.
+The facade reaches into `core/` for two things only, `resolveNetwork` and
+`STANDARD_NETWORKS`, so that network names resolve the same way here as they do for
+the adapters.
+
+What this fork adds is the facade itself, roughly 617 lines under
+`packages/xrpl-connect/src`: `Address` with key generation and four import paths
+(seed, hex, BIP-39 mnemonic, Xaman Secret Numbers) and a validator for each, plus
+`Accounts`, `Payments` and `TrustLines`. `examples/facade` is new. Two upstream
+examples were removed, `examples/react` and `examples/vanilla-js`, because they
+demonstrate the connection API the published package no longer exposes.
+
+Maintained by [XRPL Lending Network](https://github.com/XRPL-Lending-Network). Not
+affiliated with, endorsed by, or maintained by XRPL Commons, the XRP Ledger
+Foundation, or Ripple.
+
+Upstream credits [RainbowKit](https://www.rainbowkit.com/),
+[ConnectKit](https://github.com/family/connectkit) and
+[Solana Wallet Adapter](https://github.com/solana-labs/wallet-adapter) as inspiration
+for its own design.
