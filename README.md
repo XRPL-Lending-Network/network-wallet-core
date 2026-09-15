@@ -53,19 +53,19 @@ const { address, publicKey, privateKey, seed } = Address.generate();
 const secp = Address.generate('ecdsa-secp256k1');
 
 // Restore a wallet you already have a secret for
-Address.importBySeed('sEdT6jVBw43pnH3K49zWzKmUr3S21oj');
-Address.importByHex('ED8AF704F03460A711BB62F16ED1699030CEA95627FC428348C16C222062D2CD33');
-Address.importByMnemonic('bronze elite hammer first zone okay shrimp height injury vendor arrow omit');
-Address.importByMnemonic(['bronze', 'elite', /* ...12/15/18/21/24 words */ 'omit']);
-Address.importByXaman(['996118', '085046', '840948', '900303', '734410', '553242', '187768', '077910']);
+Address.importBySeed('sEdYourFamilySeed...');
+Address.importByHex('EDYourPrivateKeyHex...');
+Address.importByMnemonic('word1 word2 word3 word4 word5 word6 word7 word8 word9 word10 word11 word12');
+Address.importByMnemonic(['word1', 'word2', /* ...12/15/18/21/24 words */ 'word12']);
+Address.importByXaman(['XXXXXX', 'XXXXXX', 'XXXXXX', 'XXXXXX', 'XXXXXX', 'XXXXXX', 'XXXXXX', 'XXXXXX']);
 
 // Validate before you import/sign — same rules the import methods themselves enforce
-Address.isValidSeed('sEdT6jVBw43pnH3K49zWzKmUr3S21oj'); // true
+Address.isValidSeed(someUserInput); // true/false
 Address.isValidHex('not-hex'); // false
 Address.isValidMnemonic(someUserInput); // true/false, string or string[]
-Address.isValidClassicAddress('rN7n7otQDd6FczFgLdlqtyMVrn3HMfXoQT'); // true
-Address.isValidXamanGroup('996118', 0); // one group, at its 0-indexed position
-Address.isValidXamanSecretNumbers(['996118', '085046', /* ... all 8 */]);
+Address.isValidClassicAddress('rrrrrrrrrrrrrrrrrrrrrhoLvTp'); // true (ACCOUNT_ZERO, a special address no one controls)
+Address.isValidXamanGroup(someUserInput, 0); // one group, at its 0-indexed position
+Address.isValidXamanSecretNumbers(someUserInput); // all 8 groups
 
 // Generate demo/placeholder input for a form's "generate" button
 Address.generateMnemonic(); // fresh random 12-word BIP-39 mnemonic
@@ -81,7 +81,7 @@ const tokens = await Accounts.getTokenBalances(address, 'testnet');
 // [{ currency: 'FOO', issuer: 'rIssuer...', balance: '42' }, ...]
 
 const mpts = await Accounts.getMptBalances(address, 'testnet');
-// [{ mptIssuanceId: '0138...', value: '500', locked?: '0' }, ...]
+// [{ mptIssuanceId: 'MPTIssuanceId...', value: '500', locked?: '0' }, ...]
 ```
 
 ### `Payments` — sign and submit
@@ -109,7 +109,7 @@ await Payments.sendToken({
 await Payments.sendMpt({
   credential,
   destination: 'rDestinationAddress...', // must already hold an authorized MPToken — see TrustLines.setMptTrustLine()
-  mptIssuanceId: '013801153F91B797EB5824286DD7C258FAF11CCEF58177E5',
+  mptIssuanceId: 'MPTIssuanceId...',
   value: '500',
   network: 'testnet',
 });
@@ -134,7 +134,7 @@ await TrustLines.setTokenTrustLine({
 
 await TrustLines.setMptTrustLine({
   credential,
-  mptIssuanceId: '013801153F91B797EB5824286DD7C258FAF11CCEF58177E5',
+  mptIssuanceId: 'MPTIssuanceId...',
   authorize: true, // default; pass false to opt back out
   network: 'testnet',
 });
