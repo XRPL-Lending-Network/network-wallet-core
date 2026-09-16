@@ -53,17 +53,17 @@ const { address, publicKey, privateKey, seed } = Address.generate();
 const secp = Address.generate('ecdsa-secp256k1');
 
 // Restore a wallet you already have a secret for
-Address.importBySeed('sEdYourFamilySeed...');
-Address.importByHex('EDYourPrivateKeyHex...');
-Address.importByMnemonic('word1 word2 word3 word4 word5 word6 word7 word8 word9 word10 word11 word12');
-Address.importByMnemonic(['word1', 'word2', /* ...12/15/18/21/24 words */ 'word12']);
-Address.importByXaman(['XXXXXX', 'XXXXXX', 'XXXXXX', 'XXXXXX', 'XXXXXX', 'XXXXXX', 'XXXXXX', 'XXXXXX']);
+Address.importBySeed('<SEED>');
+Address.importByHex('<PRIVATE_KEY>');
+Address.importByMnemonic('<MNEMONIC>');
+Address.importByMnemonic(['<WORD_1>', '<WORD_2>', /* ...12/15/18/21/24 words */ '<WORD_12>']);
+Address.importByXaman(['<SECRET_NUMBER_1>', '<SECRET_NUMBER_2>', /* ...8 groups */ '<SECRET_NUMBER_8>']);
 
 // Validate before you import/sign — same rules the import methods themselves enforce
 Address.isValidSeed(someUserInput); // true/false
 Address.isValidHex('not-hex'); // false
 Address.isValidMnemonic(someUserInput); // true/false, string or string[]
-Address.isValidClassicAddress('rrrrrrrrrrrrrrrrrrrrrhoLvTp'); // true (ACCOUNT_ZERO, a special address no one controls)
+Address.isValidClassicAddress(someUserInput); // true/false
 Address.isValidXamanGroup(someUserInput, 0); // one group, at its 0-indexed position
 Address.isValidXamanSecretNumbers(someUserInput); // all 8 groups
 
@@ -78,10 +78,10 @@ Address.generateXamanSecretNumbers(); // fresh random 8-group backup, checksums 
 const { drops, xrp } = await Accounts.getXrpBalance(address, 'testnet');
 
 const tokens = await Accounts.getTokenBalances(address, 'testnet');
-// [{ currency: 'FOO', issuer: 'rIssuer...', balance: '42' }, ...]
+// [{ currency: 'FOO', issuer: '<ISSUER>', balance: '42' }, ...]
 
 const mpts = await Accounts.getMptBalances(address, 'testnet');
-// [{ mptIssuanceId: 'MPTIssuanceId...', value: '500', locked?: '0' }, ...]
+// [{ mptIssuanceId: '<MPT_ISSUANCE_ID>', value: '500', locked?: '0' }, ...]
 ```
 
 ### `Payments` — sign and submit
@@ -91,7 +91,7 @@ const credential = { seed }; // or { publicKey, privateKey } — whatever Addres
 
 await Payments.sendXrp({
   credential,
-  destination: 'rDestinationAddress...',
+  destination: '<DESTINATION>',
   amountXrp: '10', // XRP, not drops
   destinationTag: 12345, // optional
   network: 'testnet',
@@ -99,17 +99,17 @@ await Payments.sendXrp({
 
 await Payments.sendToken({
   credential,
-  destination: 'rDestinationAddress...',
+  destination: '<DESTINATION>',
   currency: 'FOO',
-  issuer: 'rIssuerAddress...',
+  issuer: '<ISSUER>',
   value: '42',
   network: 'testnet',
 });
 
 await Payments.sendMpt({
   credential,
-  destination: 'rDestinationAddress...', // must already hold an authorized MPToken — see TrustLines.setMptTrustLine()
-  mptIssuanceId: 'MPTIssuanceId...',
+  destination: '<DESTINATION>', // must already hold an authorized MPToken — see TrustLines.setMptTrustLine()
+  mptIssuanceId: '<MPT_ISSUANCE_ID>',
   value: '500',
   network: 'testnet',
 });
@@ -122,19 +122,19 @@ await Payments.sendMpt({
 
 ```typescript
 const lines = await TrustLines.getTrustLines(address, 'testnet');
-// [{ currency: 'FOO', issuer: 'rIssuer...', balance: '42', limit: '1000', limitPeer: '0' }, ...]
+// [{ currency: 'FOO', issuer: '<ISSUER>', balance: '42', limit: '1000', limitPeer: '0' }, ...]
 
 await TrustLines.setTokenTrustLine({
   credential,
   currency: 'FOO',
-  issuer: 'rIssuerAddress...',
+  issuer: '<ISSUER>',
   limit: '1000', // '0' resizes the line down to removed
   network: 'testnet',
 });
 
 await TrustLines.setMptTrustLine({
   credential,
-  mptIssuanceId: 'MPTIssuanceId...',
+  mptIssuanceId: '<MPT_ISSUANCE_ID>',
   authorize: true, // default; pass false to opt back out
   network: 'testnet',
 });

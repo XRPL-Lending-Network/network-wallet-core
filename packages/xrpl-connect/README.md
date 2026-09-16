@@ -39,7 +39,7 @@ console.log(`${address} holds ${xrp} XRP`);
 // 3. Send a payment
 const result = await Payments.sendXrp({
   credential: { seed },
-  destination: 'rDestinationAddress...',
+  destination: '<DESTINATION>',
   amountXrp: '10',
   network: 'testnet',
 });
