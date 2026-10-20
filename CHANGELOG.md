@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Documentation: use placeholder values instead of real-looking addresses, seeds and keys in usage examples.
+
+### Fixed
+
+- MetaMask Snap: use the MetaMask logo as the adapter icon.
+
+## [1.0.2] - 2026-09-05
+
+First stable release of `@xrpl-lending-network/network-wallet-core`, the package this fork publishes. Release candidates `1.0.0-rc.1` and `1.0.1-rc.1` were published on 2026-09-04 and 2026-09-05. The entries after this one come from upstream `xrpl-connect` and describe the wallet-connection toolkit this fork is based on.
+
+### Changed
+
+- xrpl-connect: replace the adapter export surface with a facade API, `Address`, `Accounts`, `Payments` and `TrustLines`, for code that already holds a seed or private key and signs and submits transactions without a browser wallet. This is a breaking change for code that imported the wallet-connection API from this package.
+- xrpl-connect: publish the facade package as `@xrpl-lending-network/network-wallet-core`.
+
 ### Fixed
 
 - Core/adapters: enforce requested-versus-wallet network consistency before session persistence, use authoritative live networks during initial connection, reject unsupported substitutions with typed errors, and prevent signing after a connected wallet changes ledgers (#179).
@@ -199,7 +216,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Switch the build to Vite for the meta package.
 - Crossmark adapter: use `signAndSubmitAndWait` and improve `isAvailable`.
 
-[Unreleased]: https://github.com/XRPL-Commons/xrpl-connect/compare/v1.0.0-rc.1...HEAD
+[Unreleased]: https://github.com/XRPL-Lending-Network/network-wallet-core/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/XRPL-Lending-Network/network-wallet-core/releases/tag/v1.0.2
 [1.0.0-rc.1]: https://github.com/XRPL-Commons/xrpl-connect/compare/v1.0.0-rc.0...v1.0.0-rc.1
 [1.0.0-rc.0]: https://github.com/XRPL-Commons/xrpl-connect/compare/v0.8.2...v1.0.0-rc.0
 [0.8.2]: https://github.com/XRPL-Commons/xrpl-connect/compare/v0.8.1...v0.8.2
