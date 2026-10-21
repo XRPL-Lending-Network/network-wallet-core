@@ -184,8 +184,12 @@ export class Address {
 
   /** A fresh, checksum-valid, random Xaman Secret Numbers backup — for a form's "generate" action. */
   static generateXamanSecretNumbers(): string[] {
-    return Array.from({ length: XAMAN_GROUP_COUNT }, (_, position) => {
-      const value = Math.floor(Math.random() * 100000);
+    if (typeof crypto?.getRandomValues !== 'function') {
+      throw new Error('Secure randomness is unavailable; crypto.getRandomValues is required.');
+    }
+    // Each group carries 16 bits of entropy, so its value must stay within 0-65535.
+    const values = crypto.getRandomValues(new Uint16Array(XAMAN_GROUP_COUNT));
+    return Array.from(values, (value, position) => {
       const checksum = secretNumberChecksum(position, value);
       return `${String(value).padStart(5, '0')}${checksum}`;
     });
