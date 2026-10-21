@@ -16,10 +16,11 @@ export const PUBLISH_CONFIG = {
 };
 
 // npm (since 10.x) no longer exposes npm_config_registry to lifecycle scripts
-// (unlike npm_config_tag/npm_config_access, which are still forwarded), so the
-// registry is read from the package's own publishConfig instead of the env.
+// (unlike npm_config_tag/npm_config_access, which are still forwarded). The
+// guard checks the env registry when it is present and falls back to the
+// package's own publishConfig when it is not.
 export const PUBLISH_GUARD =
-  "node -e \"const { npm_config_tag: tag, npm_config_access: access, npm_package_version: version } = process.env; const registry = require('./package.json').publishConfig?.registry; const expectedTag = /^\\d+\\.\\d+\\.\\d+-rc\\.\\d+$/.test(version) ? 'rc' : /^\\d+\\.\\d+\\.\\d+$/.test(version) ? 'release' : ''; let registryUrl = ''; try { registryUrl = new URL(registry).href; } catch {} if (!expectedTag || tag !== expectedTag || access !== 'public' || registryUrl !== 'https://registry.npmjs.org/') { console.error('Publish requires the version-matched rc/release tag, --access public, and --registry https://registry.npmjs.org/'); process.exit(1); }\"";
+  "node -e \"const { npm_config_tag: tag, npm_config_access: access, npm_package_version: version } = process.env; const registry = process.env.npm_config_registry || require('./package.json').publishConfig?.registry; const expectedTag = /^\\d+\\.\\d+\\.\\d+-rc\\.\\d+$/.test(version) ? 'rc' : /^\\d+\\.\\d+\\.\\d+$/.test(version) ? 'release' : ''; let registryUrl = ''; try { registryUrl = new URL(registry).href; } catch {} if (!expectedTag || tag !== expectedTag || access !== 'public' || registryUrl !== 'https://registry.npmjs.org/') { console.error('Publish requires the version-matched rc/release tag, --access public, and --registry https://registry.npmjs.org/'); process.exit(1); }\"";
 
 export function parseReleaseVersion(version) {
   const match = /^(\d+)\.(\d+)\.(\d+)(?:-rc\.(\d+))?$/.exec(version);
