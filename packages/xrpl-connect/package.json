@@ -1,16 +1,16 @@
 {
   "name": "@xrpl-lending-network/network-wallet-core",
   "version": "1.0.2",
-  "description": "The easiest way to connect XRPL wallets to your app - Framework-agnostic toolkit with plug-and-play UI",
+  "description": "XRPL address and key management, balances, payments and trust lines for code that holds its own keys",
   "author": "XRPL Connect Contributors",
   "license": "MIT",
-  "homepage": "https://github.com/XRPL-Commons/xrpl-connect#readme",
+  "homepage": "https://github.com/XRPL-Lending-Network/network-wallet-core#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XRPL-Commons/xrpl-connect.git"
+    "url": "git+https://github.com/XRPL-Lending-Network/network-wallet-core.git"
   },
   "bugs": {
-    "url": "https://github.com/XRPL-Commons/xrpl-connect/issues"
+    "url": "https://github.com/XRPL-Lending-Network/network-wallet-core/issues"
   },
   "publishConfig": {
     "access": "public",
