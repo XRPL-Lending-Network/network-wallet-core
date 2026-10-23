@@ -5,7 +5,11 @@ import type {
   NetworkInfo,
   WalletError,
 } from '@xrpl-connect/core';
-import type { ConnectOptionsFor, WalletConnectorCssVars, WalletIdentifier } from '@xrpl-lending-network/network-wallet-core';
+import type {
+  ConnectOptionsFor,
+  WalletConnectorCssVars,
+  WalletIdentifier,
+} from '@xrpl-lending-network/network-wallet-core';
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 
 /**

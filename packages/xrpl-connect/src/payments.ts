@@ -60,8 +60,15 @@ export class Payments {
 
   /** Sends an issued-currency (IOU / trustline token) payment. */
   static async sendToken(params: SendTokenParams): Promise<TxResult> {
-    const { credential, destination, currency, issuer, value, destinationTag, network = 'testnet' } =
-      params;
+    const {
+      credential,
+      destination,
+      currency,
+      issuer,
+      value,
+      destinationTag,
+      network = 'testnet',
+    } = params;
     const wallet = walletFromCredential(credential);
 
     return withClient(network, async (client) => {
@@ -81,7 +88,14 @@ export class Payments {
 
   /** Sends a Multi-Purpose Token payment. The destination must already hold an authorized MPToken. */
   static async sendMpt(params: SendMptParams): Promise<TxResult> {
-    const { credential, destination, mptIssuanceId, value, destinationTag, network = 'testnet' } = params;
+    const {
+      credential,
+      destination,
+      mptIssuanceId,
+      value,
+      destinationTag,
+      network = 'testnet',
+    } = params;
     const wallet = walletFromCredential(credential);
 
     return withClient(network, async (client) => {

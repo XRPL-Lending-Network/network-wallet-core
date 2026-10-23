@@ -282,219 +282,219 @@
 
         <section id="section-generate">
           <h2>Generate</h2>
-        <p>Creates a brand-new XRPL address via <code>Address.generate()</code>.</p>
-        <div class="row">
-          <button id="run-address" class="primary">Generate</button>
-        </div>
-        <pre id="address-output"></pre>
-      </section>
+          <p>Creates a brand-new XRPL address via <code>Address.generate()</code>.</p>
+          <div class="row">
+            <button id="run-address" class="primary">Generate</button>
+          </div>
+          <pre id="address-output"></pre>
+        </section>
 
-      <section id="section-seed">
-        <h2>Seed import</h2>
-        <p>
-          Type or generate a seed. "Import" only enables once the field holds a value that passes
-          the same validation <code>Address.importBySeed()</code> itself enforces.
-        </p>
-        <div class="row">
-          <input type="text" id="seed-field" placeholder="sEd... / s..." />
-          <button id="seed-generate">Generate</button>
-          <button id="seed-import" class="primary" disabled>Import</button>
-        </div>
-        <pre id="seed-ui-output"></pre>
-      </section>
+        <section id="section-seed">
+          <h2>Seed import</h2>
+          <p>
+            Type or generate a seed. "Import" only enables once the field holds a value that passes
+            the same validation <code>Address.importBySeed()</code> itself enforces.
+          </p>
+          <div class="row">
+            <input type="text" id="seed-field" placeholder="sEd... / s..." />
+            <button id="seed-generate">Generate</button>
+            <button id="seed-import" class="primary" disabled>Import</button>
+          </div>
+          <pre id="seed-ui-output"></pre>
+        </section>
 
-      <section id="section-hex">
-        <h2>Hex import</h2>
-        <p>
-          Type or generate a raw ed25519 private key. "Import" only enables once the field holds a
-          value that passes the same validation <code>Address.importByHex()</code> itself
-          enforces.
-        </p>
-        <div class="row">
-          <input type="text" id="hex-field" placeholder="ED... (64 hex chars)" />
-          <button id="hex-generate">Generate</button>
-          <button id="hex-import" class="primary" disabled>Import</button>
-        </div>
-        <pre id="hex-ui-output"></pre>
-      </section>
+        <section id="section-hex">
+          <h2>Hex import</h2>
+          <p>
+            Type or generate a raw ed25519 private key. "Import" only enables once the field holds a
+            value that passes the same validation <code>Address.importByHex()</code> itself
+            enforces.
+          </p>
+          <div class="row">
+            <input type="text" id="hex-field" placeholder="ED... (64 hex chars)" />
+            <button id="hex-generate">Generate</button>
+            <button id="hex-import" class="primary" disabled>Import</button>
+          </div>
+          <pre id="hex-ui-output"></pre>
+        </section>
 
-      <section id="section-mnemonic">
-        <h2>Mnemonic import</h2>
-        <p>
-          Type or generate a BIP-39 mnemonic. "Import" only enables once the field holds a value
-          that passes the same validation <code>Address.importByMnemonic()</code> itself
-          enforces.
-        </p>
-        <div class="row">
-          <input type="text" id="mnemonic-field" placeholder="12/15/18/21/24 words" />
-          <button id="mnemonic-generate">Generate</button>
-          <button id="mnemonic-import" class="primary" disabled>Import</button>
-        </div>
-        <pre id="mnemonic-ui-output"></pre>
-      </section>
+        <section id="section-mnemonic">
+          <h2>Mnemonic import</h2>
+          <p>
+            Type or generate a BIP-39 mnemonic. "Import" only enables once the field holds a value
+            that passes the same validation <code>Address.importByMnemonic()</code> itself enforces.
+          </p>
+          <div class="row">
+            <input type="text" id="mnemonic-field" placeholder="12/15/18/21/24 words" />
+            <button id="mnemonic-generate">Generate</button>
+            <button id="mnemonic-import" class="primary" disabled>Import</button>
+          </div>
+          <pre id="mnemonic-ui-output"></pre>
+        </section>
 
-      <section id="section-xaman">
-        <h2>Xaman import</h2>
-        <p>
-          Type or generate a Xaman app "Secret Numbers" backup — 8 groups of 6 digits each.
-          "Import" only enables once every group holds a value that passes the same validation
-          <code>Address.importByXaman()</code> itself enforces (shape + per-group checksum digit).
-        </p>
-        <div class="row" id="xaman-fields">
-          <input type="text" class="xaman-group" data-index="0" maxlength="6" />
-          <input type="text" class="xaman-group" data-index="1" maxlength="6" />
-          <input type="text" class="xaman-group" data-index="2" maxlength="6" />
-          <input type="text" class="xaman-group" data-index="3" maxlength="6" />
-          <input type="text" class="xaman-group" data-index="4" maxlength="6" />
-          <input type="text" class="xaman-group" data-index="5" maxlength="6" />
-          <input type="text" class="xaman-group" data-index="6" maxlength="6" />
-          <input type="text" class="xaman-group" data-index="7" maxlength="6" />
-        </div>
-        <div class="row">
-          <button id="xaman-generate">Generate</button>
-          <button id="xaman-import" class="primary" disabled>Import</button>
-        </div>
-        <pre id="xaman-ui-output"></pre>
-      </section>
+        <section id="section-xaman">
+          <h2>Xaman import</h2>
+          <p>
+            Type or generate a Xaman app "Secret Numbers" backup — 8 groups of 6 digits each.
+            "Import" only enables once every group holds a value that passes the same validation
+            <code>Address.importByXaman()</code> itself enforces (shape + per-group checksum digit).
+          </p>
+          <div class="row" id="xaman-fields">
+            <input type="text" class="xaman-group" data-index="0" maxlength="6" />
+            <input type="text" class="xaman-group" data-index="1" maxlength="6" />
+            <input type="text" class="xaman-group" data-index="2" maxlength="6" />
+            <input type="text" class="xaman-group" data-index="3" maxlength="6" />
+            <input type="text" class="xaman-group" data-index="4" maxlength="6" />
+            <input type="text" class="xaman-group" data-index="5" maxlength="6" />
+            <input type="text" class="xaman-group" data-index="6" maxlength="6" />
+            <input type="text" class="xaman-group" data-index="7" maxlength="6" />
+          </div>
+          <div class="row">
+            <button id="xaman-generate">Generate</button>
+            <button id="xaman-import" class="primary" disabled>Import</button>
+          </div>
+          <pre id="xaman-ui-output"></pre>
+        </section>
 
-      <section id="section-balances">
-        <h2>Account balances</h2>
-        <p>
-          Reads an address's XRP, issued-token, and MPT balances live from the network via
-          <code>Accounts.getXrpBalance()</code>, <code>Accounts.getTokenBalances()</code>, and
-          <code>Accounts.getMptBalances()</code>.
-        </p>
-        <div class="row">
-          <input type="text" id="balances-address-field" placeholder="r..." />
-          <select id="balances-network-field">
-            <option value="testnet" selected>testnet</option>
-            <option value="mainnet">mainnet</option>
-            <option value="devnet">devnet</option>
-          </select>
-          <button id="balances-fetch" class="primary" disabled>Fetch</button>
-        </div>
+        <section id="section-balances">
+          <h2>Account balances</h2>
+          <p>
+            Reads an address's XRP, issued-token, and MPT balances live from the network via
+            <code>Accounts.getXrpBalance()</code>, <code>Accounts.getTokenBalances()</code>, and
+            <code>Accounts.getMptBalances()</code>.
+          </p>
+          <div class="row">
+            <input type="text" id="balances-address-field" placeholder="r..." />
+            <select id="balances-network-field">
+              <option value="testnet" selected>testnet</option>
+              <option value="mainnet">mainnet</option>
+              <option value="devnet">devnet</option>
+            </select>
+            <button id="balances-fetch" class="primary" disabled>Fetch</button>
+          </div>
 
-        <h3>XRP</h3>
-        <pre id="balances-xrp-output"></pre>
+          <h3>XRP</h3>
+          <pre id="balances-xrp-output"></pre>
 
-        <h3>Tokens</h3>
-        <pre id="balances-tokens-output"></pre>
+          <h3>Tokens</h3>
+          <pre id="balances-tokens-output"></pre>
 
-        <h3>MPT</h3>
-        <pre id="balances-mpt-output"></pre>
-      </section>
+          <h3>MPT</h3>
+          <pre id="balances-mpt-output"></pre>
+        </section>
 
-      <section id="section-send">
-        <h2>Send payment</h2>
-        <p>
-          Signs and submits a <code>Payment</code> via <code>Payments.sendXrp()</code>,
-          <code>Payments.sendToken()</code>, or <code>Payments.sendMpt()</code>, depending on the
-          asset picked below. The destination doesn't need to exist yet for an XRP payment — it
-          gets activated by it.
-        </p>
+        <section id="section-send">
+          <h2>Send payment</h2>
+          <p>
+            Signs and submits a <code>Payment</code> via <code>Payments.sendXrp()</code>,
+            <code>Payments.sendToken()</code>, or <code>Payments.sendMpt()</code>, depending on the
+            asset picked below. The destination doesn't need to exist yet for an XRP payment — it
+            gets activated by it.
+          </p>
 
-        <div class="row">
-          <span class="field-label">Asset</span>
-          <select id="send-asset-field">
-            <option value="xrp" selected>XRP</option>
-            <option value="token">Token (IOU)</option>
-            <option value="mpt">MPT</option>
-          </select>
-        </div>
-        <div class="row">
-          <span class="field-label">Sender seed</span>
-          <input type="text" id="send-seed-field" placeholder="sEd... / s..." />
-        </div>
-        <div class="row">
-          <span class="field-label">Destination</span>
-          <input type="text" id="send-destination-field" placeholder="r..." />
-        </div>
-        <div class="row">
-          <span class="field-label">Amount</span>
-          <input type="text" id="send-amount-field" placeholder="e.g. 10" />
-        </div>
-        <div class="row" id="send-token-fields" hidden>
-          <span class="field-label">Currency</span>
-          <input type="text" id="send-currency-field" placeholder="e.g. FOO" />
-          <input type="text" id="send-issuer-field" placeholder="Issuer address r..." />
-        </div>
-        <div class="row" id="send-mpt-fields" hidden>
-          <span class="field-label">MPT ID</span>
-          <input type="text" id="send-mpt-issuance-field" placeholder="MPTokenIssuanceID" />
-        </div>
-        <div class="row">
-          <select id="send-network-field">
-            <option value="testnet" selected>testnet</option>
-            <option value="mainnet">mainnet</option>
-            <option value="devnet">devnet</option>
-          </select>
-          <button id="send-submit" class="primary" disabled>Send</button>
-        </div>
-        <pre id="send-output"></pre>
-      </section>
+          <div class="row">
+            <span class="field-label">Asset</span>
+            <select id="send-asset-field">
+              <option value="xrp" selected>XRP</option>
+              <option value="token">Token (IOU)</option>
+              <option value="mpt">MPT</option>
+            </select>
+          </div>
+          <div class="row">
+            <span class="field-label">Sender seed</span>
+            <input type="text" id="send-seed-field" placeholder="sEd... / s..." />
+          </div>
+          <div class="row">
+            <span class="field-label">Destination</span>
+            <input type="text" id="send-destination-field" placeholder="r..." />
+          </div>
+          <div class="row">
+            <span class="field-label">Amount</span>
+            <input type="text" id="send-amount-field" placeholder="e.g. 10" />
+          </div>
+          <div class="row" id="send-token-fields" hidden>
+            <span class="field-label">Currency</span>
+            <input type="text" id="send-currency-field" placeholder="e.g. FOO" />
+            <input type="text" id="send-issuer-field" placeholder="Issuer address r..." />
+          </div>
+          <div class="row" id="send-mpt-fields" hidden>
+            <span class="field-label">MPT ID</span>
+            <input type="text" id="send-mpt-issuance-field" placeholder="MPTokenIssuanceID" />
+          </div>
+          <div class="row">
+            <select id="send-network-field">
+              <option value="testnet" selected>testnet</option>
+              <option value="mainnet">mainnet</option>
+              <option value="devnet">devnet</option>
+            </select>
+            <button id="send-submit" class="primary" disabled>Send</button>
+          </div>
+          <pre id="send-output"></pre>
+        </section>
 
-      <section id="section-trustline">
-        <h2>Trust line</h2>
-        <p>
-          Opens a trust line for an issued currency via <code>TrustLines.setTokenTrustLine()</code>
-          (<code>TrustSet</code>), or authorizes holding an MPT via
-          <code>TrustLines.setMptTrustLine()</code> (<code>MPTokenAuthorize</code>) — the MPT
-          equivalent of a trust line. Run this from the <em>holder's</em> seed before sending them
-          a token/MPT above.
-        </p>
+        <section id="section-trustline">
+          <h2>Trust line</h2>
+          <p>
+            Opens a trust line for an issued currency via
+            <code>TrustLines.setTokenTrustLine()</code>
+            (<code>TrustSet</code>), or authorizes holding an MPT via
+            <code>TrustLines.setMptTrustLine()</code> (<code>MPTokenAuthorize</code>) — the MPT
+            equivalent of a trust line. Run this from the <em>holder's</em> seed before sending them
+            a token/MPT above.
+          </p>
 
-        <div class="row">
-          <span class="field-label">Asset</span>
-          <select id="trust-asset-field">
-            <option value="token" selected>Token (IOU)</option>
-            <option value="mpt">MPT</option>
-          </select>
-        </div>
-        <div class="row">
-          <span class="field-label">Holder seed</span>
-          <input type="text" id="trust-seed-field" placeholder="sEd... / s..." />
-        </div>
-        <div class="row" id="trust-token-fields">
-          <span class="field-label">Currency</span>
-          <input type="text" id="trust-currency-field" placeholder="e.g. FOO" />
-          <input type="text" id="trust-issuer-field" placeholder="Issuer address r..." />
-          <input type="text" id="trust-limit-field" placeholder="Limit" value="1000000000" />
-        </div>
-        <div class="row" id="trust-mpt-fields" hidden>
-          <span class="field-label">MPT ID</span>
-          <input type="text" id="trust-mpt-issuance-field" placeholder="MPTokenIssuanceID" />
-          <label style="font-size: 13px">
-            <input type="checkbox" id="trust-authorize-field" checked />
-            Authorize (uncheck to remove)
-          </label>
-        </div>
-        <div class="row">
-          <select id="trust-network-field">
-            <option value="testnet" selected>testnet</option>
-            <option value="mainnet">mainnet</option>
-            <option value="devnet">devnet</option>
-          </select>
-          <button id="trust-submit" class="primary" disabled>Submit</button>
-        </div>
-        <pre id="trust-output"></pre>
+          <div class="row">
+            <span class="field-label">Asset</span>
+            <select id="trust-asset-field">
+              <option value="token" selected>Token (IOU)</option>
+              <option value="mpt">MPT</option>
+            </select>
+          </div>
+          <div class="row">
+            <span class="field-label">Holder seed</span>
+            <input type="text" id="trust-seed-field" placeholder="sEd... / s..." />
+          </div>
+          <div class="row" id="trust-token-fields">
+            <span class="field-label">Currency</span>
+            <input type="text" id="trust-currency-field" placeholder="e.g. FOO" />
+            <input type="text" id="trust-issuer-field" placeholder="Issuer address r..." />
+            <input type="text" id="trust-limit-field" placeholder="Limit" value="1000000000" />
+          </div>
+          <div class="row" id="trust-mpt-fields" hidden>
+            <span class="field-label">MPT ID</span>
+            <input type="text" id="trust-mpt-issuance-field" placeholder="MPTokenIssuanceID" />
+            <label style="font-size: 13px">
+              <input type="checkbox" id="trust-authorize-field" checked />
+              Authorize (uncheck to remove)
+            </label>
+          </div>
+          <div class="row">
+            <select id="trust-network-field">
+              <option value="testnet" selected>testnet</option>
+              <option value="mainnet">mainnet</option>
+              <option value="devnet">devnet</option>
+            </select>
+            <button id="trust-submit" class="primary" disabled>Submit</button>
+          </div>
+          <pre id="trust-output"></pre>
 
-        <h3>Current trust lines</h3>
-        <p>
-          Lists an account's issued-currency trust lines via
-          <code>TrustLines.getTrustLines()</code> (<code>account_lines</code>) — currency, issuer,
-          balance, and the limit this account has set on the line.
-        </p>
-        <div class="row">
-          <input type="text" id="trustlines-address-field" placeholder="r..." />
-          <select id="trustlines-network-field">
-            <option value="testnet" selected>testnet</option>
-            <option value="mainnet">mainnet</option>
-            <option value="devnet">devnet</option>
-          </select>
-          <button id="trustlines-fetch" class="primary" disabled>Fetch</button>
-        </div>
-        <pre id="trustlines-output"></pre>
-      </section>
+          <h3>Current trust lines</h3>
+          <p>
+            Lists an account's issued-currency trust lines via
+            <code>TrustLines.getTrustLines()</code> (<code>account_lines</code>) — currency, issuer,
+            balance, and the limit this account has set on the line.
+          </p>
+          <div class="row">
+            <input type="text" id="trustlines-address-field" placeholder="r..." />
+            <select id="trustlines-network-field">
+              <option value="testnet" selected>testnet</option>
+              <option value="mainnet">mainnet</option>
+              <option value="devnet">devnet</option>
+            </select>
+            <button id="trustlines-fetch" class="primary" disabled>Fetch</button>
+          </div>
+          <pre id="trustlines-output"></pre>
+        </section>
       </main>
     </div>
 

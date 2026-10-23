@@ -8,8 +8,15 @@ import XrplPkg from 'xrpl';
 import EllipticPkg from 'elliptic';
 import Bip39Pkg from 'bip39';
 
-const { ECDSA, Wallet, decodeSeed, deriveAddress, deriveKeypair, encodeSeed, isValidClassicAddress } =
-  XrplPkg;
+const {
+  ECDSA,
+  Wallet,
+  decodeSeed,
+  deriveAddress,
+  deriveKeypair,
+  encodeSeed,
+  isValidClassicAddress,
+} = XrplPkg;
 const { eddsa: EllipticEddsa } = EllipticPkg;
 const { validateMnemonic, wordlists, generateMnemonic: generateBip39Mnemonic } = Bip39Pkg;
 

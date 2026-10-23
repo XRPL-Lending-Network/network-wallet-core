@@ -37,7 +37,10 @@ export interface TrustLine {
 
 export class TrustLines {
   /** Current trust lines (issued-currency, i.e. token) of an account (`account_lines`). */
-  static async getTrustLines(address: string, network: NetworkConfig = 'testnet'): Promise<TrustLine[]> {
+  static async getTrustLines(
+    address: string,
+    network: NetworkConfig = 'testnet'
+  ): Promise<TrustLine[]> {
     return withClient(network, async (client) => {
       const response = await client.request({
         command: 'account_lines',

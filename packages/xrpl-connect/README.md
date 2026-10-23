@@ -5,7 +5,7 @@ This is the **only** entry point meant to be imported from outside this workspac
 `@xrpl-connect/core`, `@xrpl-connect/ui`, and the `@xrpl-connect/adapter-*` packages are
 implementation details of the wider monorepo and are not part of this package's API.
 
-> If you're looking for the wallet-*connection* toolkit (`WalletManager`, browser wallet
+> If you're looking for the wallet-_connection_ toolkit (`WalletManager`, browser wallet
 > adapters like Xaman/Crossmark/GemWallet, the `<xrpl-wallet-connector>` UI component),
 > that's a different concern — this package doesn't touch it. `@xrpl-lending-network/network-wallet-core` here is for
 > code that already holds a seed/private key (generated or imported) and wants to derive

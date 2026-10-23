@@ -150,13 +150,21 @@ balancesFetchButton.addEventListener('click', async () => {
   const network = balancesNetworkField.value;
 
   balancesFetchButton.disabled = true;
-  await loadBalance(() => Accounts.getXrpBalance(address, network), balancesXrpOutput, '(unfunded)');
+  await loadBalance(
+    () => Accounts.getXrpBalance(address, network),
+    balancesXrpOutput,
+    '(unfunded)'
+  );
   await loadBalance(
     () => Accounts.getTokenBalances(address, network),
     balancesTokensOutput,
     '(no trustlines)'
   );
-  await loadBalance(() => Accounts.getMptBalances(address, network), balancesMptOutput, '(no MPTs)');
+  await loadBalance(
+    () => Accounts.getMptBalances(address, network),
+    balancesMptOutput,
+    '(no MPTs)'
+  );
   balancesFetchButton.disabled = false;
 });
 
@@ -197,9 +205,14 @@ function updateSendSubmitButton() {
   sendSubmitButton.disabled = !(hasCommonFields && hasAssetFields);
 }
 
-[sendSeedField, sendDestinationField, sendAmountField, sendCurrencyField, sendIssuerField, sendMptIssuanceField].forEach(
-  (field) => field.addEventListener('input', updateSendSubmitButton)
-);
+[
+  sendSeedField,
+  sendDestinationField,
+  sendAmountField,
+  sendCurrencyField,
+  sendIssuerField,
+  sendMptIssuanceField,
+].forEach((field) => field.addEventListener('input', updateSendSubmitButton));
 sendAssetField.addEventListener('change', updateSendAssetVisibility);
 updateSendAssetVisibility();
 
@@ -278,9 +291,13 @@ function updateTrustSubmitButton() {
   trustSubmitButton.disabled = !(hasSeed && hasAssetFields);
 }
 
-[trustSeedField, trustCurrencyField, trustIssuerField, trustLimitField, trustMptIssuanceField].forEach(
-  (field) => field.addEventListener('input', updateTrustSubmitButton)
-);
+[
+  trustSeedField,
+  trustCurrencyField,
+  trustIssuerField,
+  trustLimitField,
+  trustMptIssuanceField,
+].forEach((field) => field.addEventListener('input', updateTrustSubmitButton));
 trustAssetField.addEventListener('change', updateTrustAssetVisibility);
 updateTrustAssetVisibility();
 
@@ -327,7 +344,9 @@ const trustLinesFetchButton = document.getElementById('trustlines-fetch');
 const trustLinesOutput = document.getElementById('trustlines-output');
 
 function updateTrustLinesFetchButton() {
-  trustLinesFetchButton.disabled = !Address.isValidClassicAddress(trustLinesAddressField.value.trim());
+  trustLinesFetchButton.disabled = !Address.isValidClassicAddress(
+    trustLinesAddressField.value.trim()
+  );
 }
 
 trustLinesAddressField.addEventListener('input', updateTrustLinesFetchButton);
@@ -341,7 +360,9 @@ trustLinesFetchButton.addEventListener('click', async () => {
   try {
     const lines = await TrustLines.getTrustLines(address, network);
     console.log('TrustLines.getTrustLines()', lines);
-    trustLinesOutput.textContent = lines.length ? JSON.stringify(lines, null, 2) : '(no trust lines)';
+    trustLinesOutput.textContent = lines.length
+      ? JSON.stringify(lines, null, 2)
+      : '(no trust lines)';
   } catch (error) {
     console.error('getTrustLines', error);
     trustLinesOutput.textContent = `Error: ${error.message}`;

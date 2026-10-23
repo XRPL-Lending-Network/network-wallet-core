@@ -8,7 +8,7 @@
 
 ## What this repo is
 
-Upstream `xrpl-connect` is a wallet-*connection* toolkit: connect to a user's browser
+Upstream `xrpl-connect` is a wallet-_connection_ toolkit: connect to a user's browser
 extension or mobile wallet (Xaman, Crossmark, GemWallet, ...) and ask it to sign. This
 fork keeps that machinery in the tree as internal implementation detail, but the
 package this repository actually publishes,
@@ -57,7 +57,11 @@ Address.importBySeed('<SEED>');
 Address.importByHex('<PRIVATE_KEY>');
 Address.importByMnemonic('<MNEMONIC>');
 Address.importByMnemonic(['<WORD_1>', '<WORD_2>', /* ...12/15/18/21/24 words */ '<WORD_12>']);
-Address.importByXaman(['<SECRET_NUMBER_1>', '<SECRET_NUMBER_2>', /* ...8 groups */ '<SECRET_NUMBER_8>']);
+Address.importByXaman([
+  '<SECRET_NUMBER_1>',
+  '<SECRET_NUMBER_2>',
+  /* ...8 groups */ '<SECRET_NUMBER_8>',
+]);
 
 // Validate before you import/sign — same rules the import methods themselves enforce
 Address.isValidSeed(someUserInput); // true/false

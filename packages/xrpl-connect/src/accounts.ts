@@ -35,7 +35,10 @@ interface MPTokenLedgerEntry {
 
 export class Accounts {
   /** XRP balance of an account, straight off the ledger (`account_info`). */
-  static async getXrpBalance(address: string, network: NetworkConfig = 'testnet'): Promise<XrpBalance> {
+  static async getXrpBalance(
+    address: string,
+    network: NetworkConfig = 'testnet'
+  ): Promise<XrpBalance> {
     return withClient(network, async (client) => {
       const response = await client.request({
         command: 'account_info',
@@ -67,7 +70,10 @@ export class Accounts {
   }
 
   /** Multi-Purpose Token balances of an account (`account_objects`, type `mptoken`). */
-  static async getMptBalances(address: string, network: NetworkConfig = 'testnet'): Promise<MptBalance[]> {
+  static async getMptBalances(
+    address: string,
+    network: NetworkConfig = 'testnet'
+  ): Promise<MptBalance[]> {
     return withClient(network, async (client) => {
       const response = await client.request({
         command: 'account_objects',
