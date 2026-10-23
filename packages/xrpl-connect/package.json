@@ -1,6 +1,6 @@
 {
   "name": "@xrpl-lending-network/network-wallet-core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "XRPL address and key management, balances, payments and trust lines for code that holds its own keys",
   "author": "XRPL Connect Contributors",
   "license": "MIT",

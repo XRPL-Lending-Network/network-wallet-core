@@ -7,12 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-10-24
+
 ### Changed
 
+- xrpl-connect: describe the facade in the package description and point the package homepage, repository and issue links at this repository instead of upstream `xrpl-connect`.
 - Documentation: use placeholder values instead of real-looking addresses, seeds and keys in usage examples.
 
 ### Fixed
 
+- xrpl-connect: `Address.generateXamanSecretNumbers()` now draws each group from `crypto.getRandomValues()` and keeps it within 0-65535. It used `Math.random()` over 0-99999, and about 96.6% of generated backups contained a group above 65535, from which `Address.importByXaman()` derives a different account than other Secret Numbers implementations. Backups generated with 1.0.2 or earlier should be checked before they are relied on.
+- xrpl-connect: the publish guard checks `npm_config_registry` again when npm provides it, so an explicit registry other than npmjs is rejected, and falls back to `publishConfig` when it does not.
 - MetaMask Snap: use the MetaMask logo as the adapter icon.
 
 ## [1.0.2] - 2026-09-05
@@ -216,7 +221,8 @@ First stable release of `@xrpl-lending-network/network-wallet-core`, the package
 - Switch the build to Vite for the meta package.
 - Crossmark adapter: use `signAndSubmitAndWait` and improve `isAvailable`.
 
-[Unreleased]: https://github.com/XRPL-Lending-Network/network-wallet-core/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/XRPL-Lending-Network/network-wallet-core/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/XRPL-Lending-Network/network-wallet-core/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/XRPL-Lending-Network/network-wallet-core/releases/tag/v1.0.2
 [1.0.0-rc.1]: https://github.com/XRPL-Commons/xrpl-connect/compare/v1.0.0-rc.0...v1.0.0-rc.1
 [1.0.0-rc.0]: https://github.com/XRPL-Commons/xrpl-connect/compare/v0.8.2...v1.0.0-rc.0
