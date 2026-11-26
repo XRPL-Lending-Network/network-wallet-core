@@ -25,24 +25,29 @@ export const useWallet = () => {
 
     initializationPromise = (async () => {
       try {
-        const {
-          CrossmarkAdapter,
-          GemWalletAdapter,
-          WalletConnectAdapter,
-          XamanAdapter,
-          WalletManager,
-          LedgerAdapter,
-          XyraAdapter,
-          OtsuAdapter,
-          MetaMaskSnapAdapter,
-        } = await import('xrpl-connect');
-
-        if (!WalletManager) {
-          throw new Error('Failed to import WalletManager from xrpl-connect');
-        }
-        if (!MetaMaskSnapAdapter) {
-          throw new Error('Failed to import MetaMaskSnapAdapter from xrpl-connect');
-        }
+        // The published facade no longer exports WalletManager or the adapters,
+        // so the docs demo loads them from the workspace packages directly.
+        const [
+          { WalletManager },
+          { CrossmarkAdapter },
+          { GemWalletAdapter },
+          { WalletConnectAdapter },
+          { XamanAdapter },
+          { LedgerAdapter },
+          { XyraAdapter },
+          { OtsuAdapter },
+          { MetaMaskSnapAdapter },
+        ] = await Promise.all([
+          import('@xrpl-connect/core'),
+          import('@xrpl-connect/adapter-crossmark'),
+          import('@xrpl-connect/adapter-gemwallet'),
+          import('@xrpl-connect/adapter-walletconnect'),
+          import('@xrpl-connect/adapter-xaman'),
+          import('@xrpl-connect/adapter-ledger'),
+          import('@xrpl-connect/adapter-xyra'),
+          import('@xrpl-connect/adapter-otsu'),
+          import('@xrpl-connect/adapter-metamask-snap'),
+        ]);
 
         const adapters: any[] = [];
 
