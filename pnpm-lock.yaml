@@ -21,7 +21,7 @@ overrides:
   js-yaml@>=4.0.0 <4.1.1: '>=4.1.1'
   lodash@>=4.0.0 <4.18.0: '>=4.18.0 <5'
   mdast-util-to-hast@>=13.0.0 <13.2.1: '>=13.2.1'
-  node-forge@>=1.0.0 <1.4.0: '>=1.4.0 <2'
+  node-forge@>=1.0.0 <1.4.3: '>=1.4.3 <2'
   vite@>=5.2.6 <=5.4.20: '>=5.4.21'
   vite@>=7.1.0 <=7.1.10: '>=7.1.11'
   ws@>=7.0.0 <7.5.11: '>=7.5.11 <8'
@@ -3021,8 +3021,8 @@ packages:
       encoding:
         optional: true
 
-  node-forge@1.4.0:
-    resolution: {integrity: sha512-LarFH0+6VfriEhqMMcLX2F7SwSXeWwnEAJEsYm5QKWchiVYVvJyV9v7UDvUv+w5HO23ZpQTXDv/GxdDdMyOuoQ==}
+  node-forge@1.4.4:
+    resolution: {integrity: sha512-T6VRRpF3+czIGcXW/LOeoD7Ej28d8CF1UMEAbJyJRUtYMvyXAgxUPW2kbUibumvV9LiUQAznJOFyeYclzSJMMg==}
     engines: {node: '>= 6.13.0'}
 
   node-gyp-build@4.8.4:
@@ -4122,7 +4122,7 @@ snapshots:
     dependencies:
       '@transia/xrpl': 2.7.3-alpha.28(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       '@types/chrome': 0.0.253
-      node-forge: 1.4.0
+      node-forge: 1.4.4
       xrpl: 2.14.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
@@ -6747,7 +6747,7 @@ snapshots:
     dependencies:
       whatwg-url: 5.0.0
 
-  node-forge@1.4.0: {}
+  node-forge@1.4.4: {}
 
   node-gyp-build@4.8.4: {}
 
