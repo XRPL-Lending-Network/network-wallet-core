@@ -60,7 +60,13 @@ jobs:
           cache: true
 
       - name: Install dependencies
-        run: vp install --frozen-lockfile --filter docs
+        # docs... also installs the workspace packages the docs demo builds.
+        run: vp install --frozen-lockfile --filter "docs..."
+
+      # The 0.8.2 docs are generated from the upstream release tag, whose commit
+      # is not part of this fork's history. The script checks the commit hash.
+      - name: Fetch upstream v0.8.2 tag
+        run: git fetch --no-tags https://github.com/XRPL-Commons/xrpl-connect.git refs/tags/v0.8.2:refs/tags/v0.8.2
 
       - name: Check versioned docs snapshot
         run: node docs/scripts/prepare-versioned-docs.mjs --check

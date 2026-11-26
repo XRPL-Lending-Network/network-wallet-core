@@ -9,6 +9,15 @@
     "preview": "vitepress preview ."
   },
   "dependencies": {
+    "@xrpl-connect/adapter-crossmark": "workspace:*",
+    "@xrpl-connect/adapter-gemwallet": "workspace:*",
+    "@xrpl-connect/adapter-ledger": "workspace:*",
+    "@xrpl-connect/adapter-metamask-snap": "workspace:*",
+    "@xrpl-connect/adapter-otsu": "workspace:*",
+    "@xrpl-connect/adapter-walletconnect": "workspace:*",
+    "@xrpl-connect/adapter-xaman": "workspace:*",
+    "@xrpl-connect/adapter-xyra": "workspace:*",
+    "@xrpl-connect/core": "workspace:*",
     "@xrpl-connect/ui": "workspace:*",
     "xrpl": "^4.4.2",
     "@xrpl-lending-network/network-wallet-core": "workspace:*"

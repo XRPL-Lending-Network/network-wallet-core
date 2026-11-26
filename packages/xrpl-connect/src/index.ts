@@ -30,6 +30,11 @@ export type { TxResult } from './tx-result';
 // reference the type without reaching into @xrpl-connect/core themselves.
 export type { NetworkConfig, NetworkInfo, StandardNetworkId } from '@xrpl-connect/core';
 
+// The React and Vue bindings declare this package as their peer dependency and
+// take these types from it, so they must stay part of the public surface.
+export type { ConnectOptionsFor, WalletIdentifier } from '@xrpl-connect/core';
+export type { WalletConnectorCssVars } from '@xrpl-connect/ui';
+
 export { Payments } from './payments';
 export type { SendXrpParams, SendTokenParams, SendMptParams } from './payments';
 
